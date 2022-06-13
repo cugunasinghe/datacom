@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Project\\RND\\Datacom\\Timesheet Processor\\Timesheet Processor\\Timesheet Processor.csproj",
+      "projectUniqueName": "C:\\Project\\RND\\Datacom\\Timesheet Processor\\Timesheet Processor.csproj",
       "projectName": "Timesheet Processor",
-      "projectPath": "C:\\Project\\RND\\Datacom\\Timesheet Processor\\Timesheet Processor\\Timesheet Processor.csproj",
+      "projectPath": "C:\\Project\\RND\\Datacom\\Timesheet Processor\\Timesheet Processor.csproj",
       "packagesPath": "C:\\Users\\cug\\.nuget\\packages\\",
-      "outputPath": "C:\\Project\\RND\\Datacom\\Timesheet Processor\\Timesheet Processor\\obj\\",
+      "outputPath": "C:\\Project\\RND\\Datacom\\Timesheet Processor\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\cug\\AppData\\Roaming\\NuGet\\NuGet.Config",

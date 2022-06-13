@@ -1,0 +1,13 @@
+C:\Project\RND\Datacom\Timesheet Processor\bin\Debug\netcoreapp3.1\Timesheet Processor.exe
+C:\Project\RND\Datacom\Timesheet Processor\bin\Debug\netcoreapp3.1\Timesheet Processor.deps.json
+C:\Project\RND\Datacom\Timesheet Processor\bin\Debug\netcoreapp3.1\Timesheet Processor.runtimeconfig.json
+C:\Project\RND\Datacom\Timesheet Processor\bin\Debug\netcoreapp3.1\Timesheet Processor.runtimeconfig.dev.json
+C:\Project\RND\Datacom\Timesheet Processor\bin\Debug\netcoreapp3.1\Timesheet Processor.dll
+C:\Project\RND\Datacom\Timesheet Processor\bin\Debug\netcoreapp3.1\Timesheet Processor.pdb
+C:\Project\RND\Datacom\Timesheet Processor\obj\Debug\netcoreapp3.1\Timesheet Processor.csproj.AssemblyReference.cache
+C:\Project\RND\Datacom\Timesheet Processor\obj\Debug\netcoreapp3.1\Timesheet Processor.AssemblyInfoInputs.cache
+C:\Project\RND\Datacom\Timesheet Processor\obj\Debug\netcoreapp3.1\Timesheet Processor.AssemblyInfo.cs
+C:\Project\RND\Datacom\Timesheet Processor\obj\Debug\netcoreapp3.1\Timesheet Processor.csproj.CoreCompileInputs.cache
+C:\Project\RND\Datacom\Timesheet Processor\obj\Debug\netcoreapp3.1\Timesheet Processor.dll
+C:\Project\RND\Datacom\Timesheet Processor\obj\Debug\netcoreapp3.1\Timesheet Processor.pdb
+C:\Project\RND\Datacom\Timesheet Processor\obj\Debug\netcoreapp3.1\Timesheet Processor.genruntimeconfig.cache
