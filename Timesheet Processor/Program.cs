@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Timesheet_Processor.Models;
 
@@ -9,14 +8,17 @@ namespace Timesheet_Processor
 {
     class Program
     {
-        private static ApiManager _apiManager;
         private static IConfiguration _configuration;
+        private static ApiManager _apiManager;
+        private static ReportManager _reportManager;
+
 
         static void Main(string[] args)
         {
             //create api manger instance
             _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json", true, true).Build();
             _apiManager = new ApiManager(_configuration);
+            _reportManager = new ReportManager();
 
             // display application welcome message
             Console.WriteLine("--------------------------------------------\n");
@@ -37,7 +39,14 @@ namespace Timesheet_Processor
             if (payrunList != null && payrunList.Any())
             {
                 IList<Timesheet> timesheetList = _apiManager.GetTimesheetList(payrunList);
-                //TODO
+                if (timesheetList != null && timesheetList.Any())
+                {
+                    _reportManager.GenerateReport(timesheetList);
+                }
+                else
+                {
+                    Console.WriteLine($"\nTimesheet Details Could not be found for the selected PayRuns!");
+                }
             }
             else
             {
