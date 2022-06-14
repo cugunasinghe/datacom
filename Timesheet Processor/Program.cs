@@ -36,7 +36,8 @@ namespace Timesheet_Processor
             // check if any payrun details are available for the givedn date range, else terminate application
             if (payrunList != null && payrunList.Any())
             {
-                // TODO
+                IList<Timesheet> timesheetList = _apiManager.GetTimesheetList(payrunList);
+                //TODO
             }
             else
             {

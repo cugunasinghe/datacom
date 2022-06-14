@@ -54,5 +54,18 @@ namespace Timesheet_Processor
                 return null;
             }
         }
+
+        public IList<Timesheet> GetTimesheetList(IList<PayRun> payrunList)
+        {
+            try
+            {
+                IList<Timesheet> response = _client.GetJson<IList<Timesheet>>($"{_baseUrl}/api/v/1/timesheets?type=API");
+                return response.Where(x => payrunList.Any(y => y.Id == x.PayRunId)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }
