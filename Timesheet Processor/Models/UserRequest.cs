@@ -11,24 +11,14 @@ namespace Timesheet_Processor.Models
             return _companyCode;
         }
 
-        public static string GetPayPeriodStartDateString()
+        public static string GetPayPeriodStartDate()
         {
             return _payPeriodStart;
         }
 
-        public static DateTime GetPayPeriodStartDate()
-        {
-            return DateTime.Parse(_payPeriodStart);
-        }
-
-        public static string GetPayPeriodEndDateString()
+        public static string GetPayPeriodEndDate()
         {
             return _payPeriodEnd;
-        }
-
-        public static DateTime GetPayPeriodEndDate()
-        {
-            return DateTime.Parse(_payPeriodEnd);
         }
 
         public static void ReadUserInput()
