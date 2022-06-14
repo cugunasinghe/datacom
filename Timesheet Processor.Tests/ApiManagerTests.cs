@@ -18,7 +18,7 @@ namespace Timesheet_Processor.Tests
                                     {"baseUrl", "https://www.datapaylive.co.nz/demo"},
                                     {"clienId", "0826b206-6df7-4b34-bca0-60b8c42ccc44"},
                                     {"clientSecret", "fVnYxvsctf2wZBSEMnKKZefHEajO4UbaMNUJVUDJhvk=rY5Epmzetrnu90jMzp9sLxSZzoo="},
-                                    {"tokenEndpoint", "https://auth.datapaylive.co.nz/connect/token"},
+                                    {"tokenEndpoint", "https://auth.datapaylive.co.nz/connect/token"}
                                     };
 
             _configuration = new ConfigurationBuilder().AddInMemoryCollection(inMemorySettings).Build();
@@ -31,6 +31,7 @@ namespace Timesheet_Processor.Tests
             string companyCode = "TESTAPI";
             var responce = _apiManager.GetCompany(companyCode);
             Assert.NotNull(responce);
+            Assert.IsInstanceOf(typeof(Company), responce);
         }
 
         [Test]
@@ -50,6 +51,7 @@ namespace Timesheet_Processor.Tests
             var responce = _apiManager.GetPayRunList(startDate, endtDate);
             Assert.IsNotNull(responce);
             Assert.NotZero(responce.Count);
+            Assert.IsInstanceOf(typeof(IList<PayRun>), responce);
         }
 
         [Test]
@@ -74,6 +76,7 @@ namespace Timesheet_Processor.Tests
             var responce = _apiManager.GetTimesheetList(payrunList);
             Assert.IsNotNull(responce);
             Assert.NotZero(responce.Count);
+            Assert.IsInstanceOf(typeof(IList<Timesheet>), responce);
         }
 
         [Test]
