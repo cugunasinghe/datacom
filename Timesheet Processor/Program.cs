@@ -27,34 +27,52 @@ namespace Timesheet_Processor
             // requesting user for the company code, start date and the end date
             UserRequest.ReadUserInput();
 
-            // get company details
-            Company company = _apiManager.GetCompany(UserRequest.GetCompanyCode());
-            Console.WriteLine(company != null ? company.Display() : "\nCompany Details Could not be found!");
-
-            // get payrun details list
-            IList<PayRun> payrunList = _apiManager.GetPayRunList(UserRequest.GetPayPeriodStartDate(), UserRequest.GetPayPeriodEndDate());
-
-            // check if any payrun details are available for the givedn date range, else terminate application
-            if (payrunList != null && payrunList.Any())
+            try
             {
-                IList<Timesheet> timesheetList = _apiManager.GetTimesheetList(payrunList);
-                if (timesheetList != null && timesheetList.Any())
+                // get company details
+                Company company = _apiManager.GetCompany(UserRequest.GetCompanyCode());
+                string message = company != null ? company.Display() : "Company Details Could not be found for the provided Company Code!";
+                PrintMessage(message);
+
+                // get payrun details list
+                IList<PayRun> payrunList = _apiManager.GetPayRunList(UserRequest.GetPayPeriodStartDate(), UserRequest.GetPayPeriodEndDate());
+
+                // check if any payrun details are available for the givedn date range, else terminate application
+                if (payrunList != null && payrunList.Any())
                 {
-                    _reportManager.GenerateReport(timesheetList);
+                    IList<Timesheet> timesheetList = _apiManager.GetTimesheetList(payrunList);
+                    if (timesheetList != null && timesheetList.Any())
+                    {
+                        _reportManager.GenerateReport(timesheetList);
+                    }
+                    else
+                    {
+                        PrintMessage("Timesheet details could not be found for the selected PayRuns");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine($"\nTimesheet Details Could not be found for the selected PayRuns!");
+                    PrintMessage("PayRun details could not be found for the given dates:");
+                    PrintMessage($"{UserRequest.GetPayPeriodStartDateString()} to {UserRequest.GetPayPeriodEndDateString()}!");
                 }
-            }
-            else
-            {
-                Console.WriteLine($"\nPayRun Details Could not be found for the dates:");
-                Console.WriteLine($"{UserRequest.GetPayPeriodStartDateString()} to {UserRequest.GetPayPeriodEndDateString()}!");
-            }
 
-            //end of application
-            Console.WriteLine("\n---------------------END-----------------------\r");
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Error.WriteLine($"\n{ex.Message}");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            finally
+            {
+                //end of application
+                Console.WriteLine("\n---------------------END-----------------------\r");
+            }
+        }
+
+        private static void PrintMessage(string message)
+        {
+            Console.WriteLine($"\n{message}");
         }
     }
 }

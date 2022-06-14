@@ -38,7 +38,7 @@ namespace Timesheet_Processor
             }
             catch (Exception)
             {
-                return null;
+                throw new Exception("Error occured while fetching Company details!");
             }
         }
 
@@ -51,7 +51,7 @@ namespace Timesheet_Processor
             }
             catch (Exception)
             {
-                return null;
+                throw new Exception("Error occured while fetching PayRun details!");
             }
         }
 
@@ -64,7 +64,7 @@ namespace Timesheet_Processor
             }
             catch (Exception)
             {
-                return null;
+                throw new Exception("Error occured while fetching timesheet details!");
             }
         }
     }
