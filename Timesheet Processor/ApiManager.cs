@@ -62,7 +62,7 @@ namespace Timesheet_Processor
                 IList<Timesheet> response = _client.GetJson<IList<Timesheet>>($"{_baseUrl}/api/v/1/timesheets?type=API");
                 return response.Where(x => payrunList.Any(y => y.Id == x.PayRunId)).ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
